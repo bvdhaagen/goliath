@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<robot name="goliath" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="goliath_description">
+
+  <!-- helper macro -->
+  <xacro:include filename="$(find ros2_control_demo_description)/goliath/urdf/inc/create_link.xacro"/>
+
+  <xacro:create_link
+      link_name="base_link"
+      xyz_offset="0 0 0"
+      rpy_offset="0 0 0"
+      mesh_package="ros2_control_demo_description/goliath"
+      mesh_name="link_0"
+  />
+
+  <xacro:create_link
+      link_name="link_1"
+      xyz_offset="0 0 0"
+      rpy_offset="0 0 0"
+      mesh_package="ros2_control_demo_description/goliath"
+      mesh_name="link_1"
+  />
+
+  <xacro:create_link
+      link_name="link_2"
+      xyz_offset="0 0 0"
+      rpy_offset="0 0 0"
+      mesh_package="ros2_control_demo_description/goliath"
+      mesh_name="link_2"
+  />
+
+  <xacro:create_link
+      link_name="link_3"
+      xyz_offset="0 0 0"
+      rpy_offset="0 0 0"
+      mesh_package="ros2_control_demo_description/goliath"
+      mesh_name="link_3"
+  />
+
+  <xacro:create_link
+      link_name="link_4"
+      xyz_offset="0 0 0"
+      rpy_offset="0 0 0"
+      mesh_package="ros2_control_demo_description/goliath"
+      mesh_name="link_4"
+  />
+
+  <xacro:create_link
+      link_name="link_5"
+      xyz_offset="0 0 0"
+      rpy_offset="0 0 0"
+      mesh_package="ros2_control_demo_description/goliath"
+      mesh_name="link_5"
+  />
+
+  <xacro:create_link
+      link_name="link_6"
+      xyz_offset="0 0 0"
+      rpy_offset="0 0 0"
+      mesh_package="ros2_control_demo_description/goliath"
+      mesh_name="link_6"
+  />
+
+  <link name="ft_frame"/>
+  <link name="tool0"/>
+
+  <!-- base_joint fixes base_link to the environment -->
+  <joint name="base_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- joints - main serial chain -->
+  <joint name="joint_1" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_1"/>
+    <origin xyz="0 0 0.104" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="${-pi}" upper="${pi}" velocity="2.5"/>
+  </joint>
+
+  <joint name="joint_2" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <origin xyz="0 -0.060768 0.1694" rpy="${-pi/2} ${-pi/2} ${pi}"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="${-pi/2}" upper="${pi/2}" velocity="2.5"/>
+  </joint>
+
+  <joint name="joint_3" type="revolute">
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <origin xyz="0.315 0 -0.0198" rpy="0 ${pi} 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="${-pi/1.2}" upper="${pi/1.2}" velocity="2.5"/>
+  </joint>
+
+  <joint name="joint_4" type="revolute">
+    <parent link="link_3"/>
+    <child link="link_4"/>
+    <origin xyz="0.066258 0 0.036577" rpy="0 ${pi/2} 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="${-pi}" upper="${pi}" velocity="2.5"/>
+  </joint>
+
+  <joint name="joint_5" type="revolute">
+    <parent link="link_4"/>
+    <child link="link_5"/>
+    <origin xyz="0.02456 0 -0.319213" rpy="0 ${pi/2} ${pi}"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="${-pi/1.5}" upper="${pi/1.5}" velocity="2.5"/>
+  </joint>
+
+  <joint name="joint_6" type="revolute">
+    <parent link="link_5"/>
+    <child link="link_6"/>
+    <origin xyz="0.07318 0 0.02435" rpy="0 ${pi/2} 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="${-pi}" upper="${pi}" velocity="2.5"/>
+  </joint>
+
+  <joint name="joint-ft_frame" type="fixed">
+    <parent link="link_6"/>
+    <child link="ft_frame"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="joint-tool" type="fixed">
+    <parent link="ft_frame"/>
+    <child link="tool0"/>
+    <origin xyz="0 0 0.02" rpy="0 0 0"/>
+  </joint>
+
+</xacro:macro>
+
+</robot>
