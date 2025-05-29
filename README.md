@@ -40,8 +40,18 @@ source install/setup.bash
 
 # Launch the Goliath ros2_control simulation
 
+instructions will follow soon
+
 # Launch Goliath ros2_control on real robot 
+sudo chmod 666 /dev/ttyACM0 && sudo chmod +x /dev/ttyACM0 
+
+ros2 launch goliath_controller goliath_controller.launch.py 
+- testline :   ros2 topic pub /position_controller/commands std_msgs/msg/Float64MultiArray '{data: [0.0, -0.40, 1.0, 0.0, 0.5, 0.0]}' --once 
 
 # Lauch Goliath with moveit in simulation 
 
+instructions will follow soon
+
 # Launch Goliath with moveit on real robot
+
+ros2 launch goliath_moveit demo.launch.py 
