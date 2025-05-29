@@ -34,7 +34,8 @@ colcon build --symlink-install
 # add your build to the source 
 source install/setup.bash
 
-![Screenshot from 2025-05-29 22-37-02](https://github.com/user-attachments/assets/78e28ad4-1337-454a-b0d8-f70030bffbee)
+![Screenshot from 2025-05-29 22-33-48](https://github.com/user-attachments/assets/3b7c2b53-0783-415c-84df-7c2407b20006)
+
 
 
 # Launch the Goliath ros2_control simulation
