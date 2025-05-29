@@ -1,5 +1,6 @@
 # goliath
 Golitah is a semi industrial 6 dof robot arm  
+![Screenshot from 2025-05-29 22-37-02](https://github.com/user-attachments/assets/6f8a0ce4-88ff-46e2-95ce-c0b8a4a56aea)
 
 # Goliath installation steps
 install ros humble >>  https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html
@@ -32,6 +33,9 @@ colcon build --symlink-install
 
 # add your build to the source 
 source install/setup.bash
+
+![Screenshot from 2025-05-29 22-37-02](https://github.com/user-attachments/assets/78e28ad4-1337-454a-b0d8-f70030bffbee)
+
 
 # Launch the Goliath ros2_control simulation
 
