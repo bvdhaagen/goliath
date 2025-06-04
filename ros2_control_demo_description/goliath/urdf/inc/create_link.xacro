@@ -1,25 +1,30 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
 
+<xacro:include filename="$(find goliath_controller)/urdf/materials.xacro" />
+
   <xacro:macro name="create_link" params="
         link_name
         xyz_offset
         rpy_offset
+        material
         mesh_package
         mesh_name">
     <link name="${link_name}">
-      <visual>
+       <visual>
         <origin xyz="${xyz_offset}" rpy="${rpy_offset}"/>
-        <geometry>
-          <mesh filename="package://${mesh_package}/meshes/visual/${mesh_name}.stl" scale="0.001 0.001 0.001"/>
-        </geometry>
-      </visual>
+         <geometry>
+           <mesh filename="package://${mesh_package}/meshes/visual/${mesh_name}.stl" scale="0.001 0.001 0.001"/>
+         </geometry>
+        <material name="${material}"/>
+       </visual>
       <collision>
         <origin xyz="${xyz_offset}" rpy="${rpy_offset}"/>
-        <geometry>
+         <geometry>
           <mesh filename="package://${mesh_package}/meshes/collision/${mesh_name}.stl" scale="0.001 0.001 0.001"/>
-        </geometry>
-      </collision>
+         </geometry>
+        <material name="${material}"/>
+       </collision>
       <inertial>
         <mass value="1"/>
         <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
