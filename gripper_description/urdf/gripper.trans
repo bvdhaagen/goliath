@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<robot name="gripper" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="Slider 22_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Slider 22">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Slider 22_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Slider 23_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Slider 23">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Slider 23_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>
