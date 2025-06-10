@@ -80,6 +80,15 @@
       mesh_package="ros2_control_demo_description/goliath"
       mesh_name="tool_base"
   />
+
+ <xacro:create_link
+      link_name="power_box"
+      xyz_offset="0 0 0"
+      rpy_offset="0 0 0"
+      material="silver"      
+      mesh_package="ros2_control_demo_description/goliath"
+      mesh_name="power_box"
+  />
  
  <!--  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  
@@ -344,6 +353,19 @@
   <child link="t_shirt_1"/>
 </joint>
 
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  
+       joints for additional parts - powerbox, camera mount, sansors and so on. add STL to Meshes 
+                                
+                                follow the create link xacro format
+       
+       +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  
+  <joint name="joint_powebox" type="fixed">
+    <parent link="link_2"/>
+    <child link="power_box"/>
+    <origin xyz="-0.276 0 -0.057" rpy="0 1.5775 0"/>
+  </joint>
 
 </xacro:macro>
 
